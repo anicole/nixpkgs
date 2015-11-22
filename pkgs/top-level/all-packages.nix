@@ -714,7 +714,7 @@ let
 
   bc = callPackage ../tools/misc/bc { };
 
-  bdf2psf = callPackage ../tools/misc/bdf2psf { };  
+  bdf2psf = callPackage ../tools/misc/bdf2psf { };
 
   bcache-tools = callPackage ../tools/filesystems/bcache-tools { };
 
@@ -6294,8 +6294,8 @@ let
   freealut = callPackage ../development/libraries/freealut { };
 
   freeglut = callPackage ../development/libraries/freeglut { };
-  
-  freenect = callPackage ../development/libraries/freenect { 
+
+  freenect = callPackage ../development/libraries/freenect {
       inherit (xorg) libXi libXmu;
   };
 
@@ -11408,6 +11408,12 @@ let
 
   keepass = callPackage ../applications/misc/keepass { };
 
+  keepass-with-plugins = callPackage ../applications/misc/keepass/patched.nix {
+    plugins = [];
+  };
+
+  keepass-keefox = callPackage ../applications/misc/keepass-plugins/keefox { };
+
   exrdisplay = callPackage ../applications/graphics/exrdisplay {
     fltk = fltk20;
   };
@@ -15356,4 +15362,3 @@ tweakAlias = _n: alias: with lib;
   else alias;
 
 in lib.mapAttrs tweakAlias aliases // self; in pkgs
-
